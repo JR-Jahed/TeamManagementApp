@@ -1,16 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
-import 'package:team_management/common/constants.dart';
 import 'package:team_management/providers/logged_in_user_provider.dart';
 import 'package:team_management/common/routes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../data/user.dart';
-
-
 
 class Login extends ConsumerWidget {
 
@@ -21,7 +15,7 @@ class Login extends ConsumerWidget {
 
   Future<void> sendData(final context, final ref) async {
 
-    String endpoint = "http://10.0.2.2:8000/login/";
+    String endpoint = "http://10.0.2.2:8000/login_user/";
 
     try {
       Response response = await post(
@@ -39,13 +33,6 @@ class Login extends ConsumerWidget {
         final json = jsonDecode(data);
 
         final user = User.fromJson(json);
-
-        final sp = await SharedPreferences.getInstance();
-
-        sp.setString(
-          loggedInUser,
-          user.toString()
-        );
 
         ref.read(loggedInUserProvider.notifier).setUser = user;
 

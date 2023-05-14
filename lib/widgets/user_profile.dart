@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:team_management/common/constants.dart';
 import 'package:team_management/providers/logged_in_user_provider.dart';
 import 'package:team_management/common/routes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class UserProfile extends ConsumerWidget {
   const UserProfile({super.key});
@@ -22,10 +20,6 @@ class UserProfile extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () async {
-
-              final sp = await SharedPreferences.getInstance();
-              sp.remove(loggedInUser);
-
               ref.read(loggedInUserProvider.notifier).setUser = null;
 
               Navigator.of(context).pushNamedAndRemoveUntil(homeRoute, (route) => false);

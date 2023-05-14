@@ -24,12 +24,23 @@ class MyHomePage extends ConsumerWidget {
           widget == null ? UsernameLoginButton(null) : widget!,
         ],
       ),
-      body: Column(
-        children: [
-
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(createTeamRoute);
+                },
+                child: const Text(
+                  'Create Team',
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-
     );
   }
 }
