@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
-import '../data/team.dart';
+import '../data/teams.dart';
 
 class TeamsProvider extends StateNotifier<Teams?> {
 
   TeamsProvider(): super(null);
 
   Future<Teams> getTeams(final user) async {
-    String endpoint = "http://10.0.2.2:8000/get_teams/";
+    String endpoint = "http://10.0.2.2:8000/get_teams_of_user/";
 
     final json = jsonDecode(user.toString());
 

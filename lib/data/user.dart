@@ -20,7 +20,6 @@ class User {
 
   @override
   String toString() {
-
     return "{\"id\":$id,\"name\":\"$name\",\"email\":\"$email\",\"password\":\"$password\"}";
   }
 }

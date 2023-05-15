@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:team_management/common/routes.dart';
 import 'package:team_management/providers/logged_in_user_provider.dart';
+import 'package:team_management/providers/team_details_provider.dart';
 import 'package:team_management/widgets/username_login_button.dart';
 
 import '../providers/team_provider.dart';
@@ -67,7 +68,8 @@ class MyHomePage extends ConsumerWidget {
                           ),
 
                           onTap: () {
-
+                            ref.read(teamDetailsProvider.notifier).getTeamDetails(teams[index].teamName);
+                            Navigator.of(context).pushNamed(teamDetailsRoute);
                           },
                         );
                       },
