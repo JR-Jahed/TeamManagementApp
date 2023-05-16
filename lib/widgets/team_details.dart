@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:team_management/common/routes.dart';
 import 'package:team_management/providers/add_member_list_provider.dart';
+import 'package:team_management/providers/logged_in_user_provider.dart';
 import 'package:team_management/providers/team_details_provider.dart';
 
 class TeamDetails extends ConsumerWidget {
@@ -24,6 +25,8 @@ class TeamDetails extends ConsumerWidget {
           if(teamDetails == null) {
             return const CircularProgressIndicator();
           }
+
+          final userId = ref.read(loggedInUserProvider.notifier).value!.id;
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,6 +58,8 @@ class TeamDetails extends ConsumerWidget {
                       'Members',
                     ),
 
+                    userId == teamDetails.admin ?
+
                     OutlinedButton(
                       onPressed: () {
                         ref.read(addMemberListProvider.notifier).getAddMemberList(teamDetails.teamName);
@@ -63,7 +68,7 @@ class TeamDetails extends ConsumerWidget {
                       child: const Text(
                         'Add Member',
                       ),
-                    )
+                    ) : const SizedBox()
                   ],
                 ),
               ),

@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart';
-
 import '../data/team_details.dart';
 
 class TeamDetailsProvider extends StateNotifier<TeamDetails?> {

@@ -5,6 +5,7 @@ import 'package:team_management/widgets/add_member.dart';
 import 'package:team_management/widgets/create_account.dart';
 import 'package:team_management/widgets/create_team.dart';
 import 'package:team_management/widgets/home.dart';
+import 'package:team_management/widgets/join_team.dart';
 import 'package:team_management/widgets/login.dart';
 import 'package:team_management/widgets/team_details.dart';
 import 'package:team_management/widgets/user_profile.dart';
@@ -30,6 +31,7 @@ void main() async {
           createTeamRoute: (context) => CreateTeam(),
           teamDetailsRoute: (context) => const TeamDetails(),
           addMemberListRoute: (context) => const AddMember(),
+          joinTeamRoute: (context) => const JoinTeam(),
         },
       ),
     ),
